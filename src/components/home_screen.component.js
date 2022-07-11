@@ -1,5 +1,4 @@
-import React, { Component, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
 import axios from 'axios';
 import Navbar from "./nav-bar.component"
 import StarRating from './star_rating';
@@ -12,7 +11,7 @@ const Artist = props => (
     <td><StarRating u={props.email} a={props.artist} s={false}></StarRating>
     <StarRating  u={props.email} a={props.artist} s={true}></StarRating></td>
     <td>
-      <Link to={"/edit/"+props.artist._id}>edit</Link> | <a href="#" onClick={() => { props.deleteArtist(props.artist._id) }}>delete</a>
+       <a href="#" onClick={() => { props.deleteArtist(props.artist._id) }}>delete</a>
     </td>
   </tr>
 )
@@ -27,7 +26,7 @@ const Song = props => (
       <td>{props.song.artist.join()}</td>
       <td>{props.song.dor.substring(0,10)}</td>
       <td>
-        <Link to={"/edit/"+props.song._id}>edit</Link> | <a href="#" onClick={() => { props.deleteSong(props.song._id) }}>delete</a>
+       <a href="#" onClick={() => { props.deleteSong(props.song._id) }}>delete</a>
       </td>
     </tr>
   )
@@ -108,7 +107,8 @@ export default class ArtistList extends Component{
             <tr>
               <th>Name</th>
               <th>Bio</th>
-              <th>Dob</th>
+              <th>Date of Birth</th>
+              <th>Rating</th>
             </tr>
           </thead>
           <tbody>
@@ -122,10 +122,10 @@ export default class ArtistList extends Component{
       <table className="table">
         <thead className="thead-light">
           <tr>
-            <th>Image</th>
+            <th>Thumbnail</th>
             <th>Name</th>
             <th>Artist</th>
-            <th>Dor</th>
+            <th>Date of release</th>
           </tr>
         </thead>
         <tbody>

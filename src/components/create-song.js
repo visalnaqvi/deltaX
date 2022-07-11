@@ -71,7 +71,7 @@ export default class CreateSong extends Component {
 
   onChangeBio(e) {
     this.setState({
-      bio: e.target.value,
+      art_bio: e.target.value,
     });
   }
 
@@ -145,7 +145,7 @@ export default class CreateSong extends Component {
       .post("http://localhost:5000/song/add", song)
       .then((res) => console.log(res.data)).catch((e)=>{console.log(e)});
 
-    window.location = "/home";
+      window.location = `/home?email=${this.state.email}`
   }
   
   onSelect(selectedList, selectedItem) {
@@ -158,7 +158,7 @@ export default class CreateSong extends Component {
 
     const artist = {
       name: this.state.new_artist_name,
-      bio: this.state.bio,
+      bio: this.state.art_bio,
       dob: this.state.dob,
       rating:[]
     };
@@ -278,7 +278,7 @@ options={this.state.artists} onSelect={this.onSelect} displayValue="name" select
                 type="text"
                 required
                 className="form-control"
-                value={this.state.bio}
+                value={this.state.art_bio}
                 onChange={this.onChangeBio}
               />
             </div>
