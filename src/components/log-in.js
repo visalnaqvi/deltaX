@@ -38,27 +38,16 @@ export default class CreateUser extends Component {
     })
   }
 
-
+ 
   onSubmit(e) {
     e.preventDefault();
 
-
-    this.state.users.forEach( user => {
-
-      if(user == this.state.email){
-        window.location = `/home?email=${this.state.email}`
-      this.setState({flag:true})
-      }
-     
-      
-       console.log(user);
-       console.log(this.state.email);
-      
-    })
-
-    this.state.flag?window.location = `/home?email=${this.state.email}`:
-    // window.location = '/create-user';
-    console.log(this.state.flag)
+    if(this.state.users.includes(this.state.email)){
+      window.location = `/home?email=${this.state.email}`
+    }else{
+      window.location = '/create-user'
+    }
+   
       
   }
 

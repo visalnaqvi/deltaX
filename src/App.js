@@ -15,9 +15,7 @@ function App() {
       <Route path="/" element={<Login />} />
       <Route path="/home" element={<HomeScreen />} />
       <Route path="/add-song" element={<CreateSong />} />
-      {/* <Route path="/edit/:id" component={EditExercise} />
-      <Route path="/create" component={CreateExercise} />
-      <Route path="/user" component={CreateUser} /> */}
+     
      
       </Routes>
      
